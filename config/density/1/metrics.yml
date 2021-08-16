@@ -1,0 +1,28 @@
+settings:
+  metrics:
+    count:
+      - name: "MeanAbsoluteError"
+        parameters:
+          name: "mae"
+      - name: "RootMeanSquaredError"
+        parameters:
+          name: "rmse"
+      - name: "RSquareV2"
+        parameters:
+          dtype: "float32"
+          y_shape: !!python/tuple [1]
+    density_map:
+      - name: "MeanAbsoluteErrorV2"
+        parameters:
+          name: "mae"
+          y_true_index: 0
+      - name: "RootMeanSquaredErrorV2"
+        parameters:
+          name: "rmse"
+          y_true_index: 0
+      - name: "RSquareV2"
+        parameters:
+          y_true_index: 0
+          dtype: "float32"
+          y_shape: !!python/tuple [256, 256, 1]
+          multioutput: "uniform_average"

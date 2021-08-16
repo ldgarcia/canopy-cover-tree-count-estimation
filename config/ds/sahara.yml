@@ -1,0 +1,18 @@
+settings:
+  split_seed: 591477907  # generated using random.org
+  input_channels: 2
+  dataset_name: "sahara"
+  patch_size: !!python/tuple [256, 256]
+  frames_file: "sahara-sahel/frames.geojson"
+  frames_query: "region == 'sahara' and original_split == 'train'"
+  evaluation_frames_query: "region == 'sahara' and original_split == 'test'"
+  # The settings below consider a patch size of 256 x 256
+  validation_batch_size: 8
+  validation_steps: null # automatic computation
+  validation_n_skip: null
+  validation_plot_n_skip: 1
+  validation_plot_n_take: 1
+  training_batch_size: 8
+  training_steps: 480
+  testing_batch_size: 1
+  testing_steps: 25

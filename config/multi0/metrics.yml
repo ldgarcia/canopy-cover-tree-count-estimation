@@ -1,0 +1,49 @@
+settings:
+  metrics:
+    cover:
+      - name: RSquareV2
+        parameters:
+          dtype: float32
+          y_shape: !!python/tuple [1]
+      - name: MeanAbsoluteError
+      - name: RootMeanSquaredError
+    count:
+      - name: RSquareV2
+        parameters:
+          dtype: float32
+          y_shape: !!python/tuple [1]
+      - name: MeanAbsoluteError
+      - name: RootMeanSquaredError
+    segmentation_map:
+      - name: BinaryRSquareV2
+        parameters:
+          dtype: float32
+          y_true_index: 0
+          y_shape: !!python/tuple [256, 256, 1]
+          multioutput: uniform_average
+      - name: RSquareV2
+        parameters:
+          dtype: float32
+          y_true_index: 0
+          y_shape: !!python/tuple [256, 256, 1]
+          multioutput: uniform_average
+      - name: mcc
+      - name: dsc
+      - name: accuracy
+      - name: precision
+      - name: recall
+    density_map:
+      - name: MeanAbsoluteErrorV2
+        parameters:
+          name: "mae"
+          y_true_index: 0
+      - name: RootMeanSquaredErrorV2
+        parameters:
+          name: rmse
+          y_true_index: 0
+      - name: RSquareV2
+        parameters:
+          y_true_index: 0
+          dtype: float32
+          y_shape: !!python/tuple [256, 256, 1]
+          multioutput: uniform_average

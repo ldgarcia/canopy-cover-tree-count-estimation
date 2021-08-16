@@ -1,0 +1,8 @@
+model_name_suffix:
+  - adam1
+settings:
+  optimizer:
+    name: Adam
+    parameters:
+      learning_rate: !!float "1e-4"
+      epsilon: !!float "1e-9"

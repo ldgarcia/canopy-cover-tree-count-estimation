@@ -1,0 +1,24 @@
+settings:
+  plots:
+    - filename: "loss.png"
+      keys:
+        - "loss"
+      yscale: "linear"
+    - filename: "accuracy.png"
+      keys:
+        - "binary_accuracy"
+      yscale: "linear"
+    - filename: "dice.png"
+      keys:
+        - "dice_coefficient"
+      yscale: "linear"
+  validation_plot_cmap:
+    - cmap: "gray"
+      keys:
+        - !!python/tuple ["annotations", 1]
+    - cmap: "jet_r"
+      keys:
+        - !!python/tuple ["annotations", 2]
+      mask_value: 1.0
+      mask_color: "white"
+      mask_rel: "equal"

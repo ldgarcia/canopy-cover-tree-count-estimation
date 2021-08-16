@@ -1,0 +1,4 @@
+model_name_suffix:
+  - cth1
+settings:
+  cover_threshold: 0.1

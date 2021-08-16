@@ -1,0 +1,34 @@
+model_name_suffix:
+  - d1
+  - ds
+slurm:
+  partition: gpu
+  gres: "gpu:titanrtx:1"
+  cpus_per_task: 4
+  memory_gb: 10
+  approx_ms_per_epoch_step: 550
+settings:
+  annotation_keys:
+    - segmentation-mask
+    - uniform-density
+    - segmentation-boundary-weights
+  transformers:
+    - name: to_multi0_annotation_deeply_supervised
+  model: multi0
+  output_channels: 1
+  output_activation: sigmoid
+  hidden_activation: elu
+  relu_activity_l1_regularizer: null # 0.000001
+  padding: same
+  depth: 4
+  layer_count: 64
+  output_resize_interpolation: null
+  encoder_unit: vanilla
+  encoder_pooling: max
+  encoder_pooling_batch_norm: True # using BN here
+  decoder_unit: vanilla
+  decoder_upsampling: odena_2016
+  decoder_upsampling_use_batch_norm: False
+  decoder_use_attention_gate: False
+  decoder_concat_use_batch_norm: True # using BN here
+  deeply_supervised: True

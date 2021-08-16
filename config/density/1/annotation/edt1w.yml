@@ -1,0 +1,6 @@
+model_name_suffix:
+  - edt1w
+settings:
+  annotation_keys:
+    - edt-density
+    - segmentation-boundary-weights

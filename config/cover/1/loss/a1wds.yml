@@ -1,0 +1,33 @@
+model_name_suffix:
+  - loss
+  - a1wds
+settings:
+  loss:
+    segmentation_map:
+      name: Tversky
+      parameters:
+        alpha: 0.6
+        weights_index: 1
+    segmentation_map_hidden_1:
+      name: Tversky
+      parameters:
+        alpha: 0.6
+        weights_index: 1
+    segmentation_map_hidden_2:
+      name: Tversky
+      parameters:
+        alpha: 0.6
+        weights_index: 1
+    segmentation_map_hidden_3:
+      name: Tversky
+      parameters:
+        alpha: 0.6
+        weights_index: 1
+    cover:
+      name: MeanSquaredError
+  loss_weights:
+    segmentation_map: 1.0
+    segmentation_map_hidden_1: 1.0
+    segmentation_map_hidden_2: 1.0
+    segmentation_map_hidden_3: 1.0
+    cover: 0.25

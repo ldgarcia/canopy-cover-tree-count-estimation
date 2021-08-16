@@ -1,0 +1,133 @@
+title: "U-Net architecture variations, Unified loss"
+ref: tab:exp-unet-unified
+datasets:
+  1: Sahara
+  2: Sahel-Sudan
+  3: Rwanda
+static_columns:
+  seed: Seed
+models:
+  # Sahara
+  - folder: cover1-d1-loss-b1w-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla (ELU, w/o DS)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d0-ds-loss-b1wds-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla (SELU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d1-ds-loss-b1wds-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla (ELU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d3-ds-loss-b1wds-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: SDUNet (ELU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d4-ds-loss-b1wds-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla + Attention (ELU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d4-ds-relu-loss-b1wds-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla + Attention (ReLU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d5-ds-loss-b1wds-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder (ELU)
+    static_columns:
+      seed: 207146141
+  # Sahel
+  - folder: cover1-d1-loss-b1w-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla (ELU, w/o DS)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d0-ds-loss-b1wds-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla (SELU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d1-ds-loss-b1wds-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla (ELU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d3-ds-loss-b1wds-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: SDUNet (ELU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d4-ds-loss-b1wds-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla + Attention (ELU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d4-ds-relu-loss-b1wds-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla + Attention (ReLU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d5-ds-loss-b1wds-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder (ELU)
+    static_columns:
+      seed: 207146141
+  # Rwanda
+  - folder: cover1-d1-loss-b1w-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla (ELU, w/o DS)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d0-ds-loss-b1wds-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla (SELU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d1-ds-loss-b1wds-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla (ELU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d3-ds-loss-b1wds-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: SDUNet (ELU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d4-ds-loss-b1wds-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla + Attention (ELU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d4-ds-relu-loss-b1wds-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla + Attention (ReLU)
+    static_columns:
+      seed: 207146141
+  - folder: cover1-d5-ds-loss-b1wds-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla encoder, SDUNet decoder (ELU)
+    static_columns:
+      seed: 207146141
+columns:
+  - key: val_cover_r_square
+    label: Cover R2
+    best: max
+  - key: val_segmentation_map_mcc
+    label: MCC
+    best: max
+  - key: val_segmentation_map_accuracy
+    label: Accuracy
+    best: max
+  - key: val_segmentation_map_precision
+    label: Precision
+    best: max
+  - key: val_segmentation_map_recall
+    label: Recall
+    best: max

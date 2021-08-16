@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+source ${HOME}/miniconda3/etc/profile.d/conda.sh
+
+conda activate {{conda_env}}
+
+echo "Running job"
+
+export LD_PRELOAD="${HOME}/miniconda3/envs/{{conda_env}}/lib/libmimalloc.so"
+export PYTHONPATH="${DLC_PROJECT_DIRECTORY}:${PYTHONPATH}"
+
+python3 ${DLC_PROJECT_DIRECTORY}/scripts/create_frames.py \
+    --dataset-name="{{dataset_name}}" \
+    --datasets-path="{{datasets_path}}" \
+    --img-dir="{{dataset_img_dir}}" \
+    --output-path="{{output_path}}" \
+    --creators-group="{{creators_group}}" \
+    --n-processes="{{n_processes}}" \
+    {% if dry_run %}
+    --dry-run \
+    {% endif %}
+    {% if cache_enabled %}
+    --cache-enabled \
+    {% endif %}
+    {% if cache_shared %}
+    --cache-shared \
+    {% endif %}
+    {% if use_fixed_polygons %}
+    --fixed-polygons \
+    {% else %}
+    --no-fixed-polygons \
+    {% endif %}
+    --initial-scale="{{initial_scale}}" \
+    {% if overwrite %}
+    --overwrite \
+    {% else %}
+    --no-overwrite \
+    {% endif %}
+    {% if create_zip %}
+    --zip
+    {% else %}
+    --no-zip
+    {% endif %}
+
+
+echo "Finished job"
+
+conda deactivate

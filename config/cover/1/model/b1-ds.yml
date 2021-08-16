@@ -1,0 +1,32 @@
+model_name_suffix:
+  - b1
+  - ds
+slurm:
+  partition: gpu
+  gres: "gpu:titanrtx:1"
+  cpus_per_task: 4
+  memory_gb: 10
+  approx_ms_per_epoch_step: 500
+settings:
+  annotation_keys:
+    - segmentation-mask
+    - segmentation-boundary-weights
+  transformers:
+    - name: fix_boundary_weights
+    - name: to_cover1_annotation_deeply_supervised
+  model: cover1
+  output_channels: 1
+  output_activation: sigmoid
+  hidden_activation: elu
+  relu_activity_l1_regularizer: null
+  padding: same
+  depth: 4
+  layer_count: 64
+  output_resize_interpolation: null
+  encoder_unit: vanilla
+  encoder_pooling: max
+  decoder_unit: vanilla
+  decoder_upsampling: odena_2016
+  decoder_upsampling_use_batch_norm: False
+  decoder_use_attention_gate: False
+  deeply_supervised: True

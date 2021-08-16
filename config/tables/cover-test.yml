@@ -1,0 +1,360 @@
+title: "Cover model, U-Net architecture and loss variations (test set)"
+ref: tab:exp-cover-unet-loss-test
+datasets:
+  1: Sahara
+  2: Sahel-Sudan
+  3: Rwanda
+static_columns:
+  seed: Seed
+  model: Model (abbrev.)
+  loss: Loss Function
+  loss_short: Loss Fn. (abbrev.)
+static_columns_pos:
+  model: 1
+  loss: 1
+  loss_short: 1
+  seed: 2
+models:
+  ## Tversky
+  # Sahara
+  - folder: cover1-d1-ds-loss-a1wds-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla
+    static_columns:
+      seed: 207146141
+      loss: Tversky
+      loss_short: T
+      model: V
+  - folder: cover1-d1-ds-loss-b1wds-new-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla
+    static_columns:
+      seed: 207146141
+      loss: Unified
+      loss_short: U
+      model: V
+  - folder: cover1-d4-ds-loss-a1wds-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla + Attention (S0)
+    static_columns:
+      seed: 207146141
+      loss: Tversky
+      loss_short: T
+      model: VA
+  - folder: cover1-d4-ds-loss-a1wds-sgd-cyc-sahara-175229620
+    dataset: 1
+    label: Vanilla + Attention (S1)
+    static_columns:
+      seed: 175229620
+      loss: Tversky
+      loss_short: T
+      model: VA
+  - folder: cover1-d4-ds-loss-a1wds-sgd-cyc-sahara-244591021
+    dataset: 1
+    label: Vanilla + Attention (S2)
+    static_columns:
+      seed: 244591021
+      loss: Tversky
+      loss_short: T
+      model: VA
+  - folder: cover1-d4-ds-loss-b1wds-new-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla + Attention (S0)
+    static_columns:
+      seed: 207146141
+      loss: Unified
+      loss_short: U
+      model: VA
+  - folder: cover1-d4-ds-loss-b1wds-new-sgd-cyc-sahara-175229620
+    dataset: 1
+    label: Vanilla + Attention (S1)
+    static_columns:
+      seed: 175229620
+      loss: Unified
+      loss_short: U
+      model: VA
+  - folder: cover1-d4-ds-loss-b1wds-new-sgd-cyc-sahara-244591021
+    dataset: 1
+    label: Vanilla + Attention (S2)
+    static_columns:
+      seed: 244591021
+      loss: Unified
+      loss_short: U
+      model: VA
+  - folder: cover1-d5-ds-loss-a1wds-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder
+    static_columns:
+      seed: 207146141
+      loss: Tversky
+      loss_short: T
+      model: VS
+  - folder: cover1-d5-ds-loss-b1wds-new-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder
+    static_columns:
+      seed: 207146141
+      loss: Unified
+      loss_short: U
+      model: VS
+  - folder: cover1-d6-ds-loss-a1wds-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder, Attention (S0)
+    static_columns:
+      seed: 207146141
+      loss: Tversky
+      loss_short: T
+      model: VSA
+  - folder: cover1-d6-ds-loss-a1wds-sgd-cyc-sahara-175229620
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder, Attention (S1)
+    static_columns:
+      seed: 175229620
+      loss: Tversky
+      loss_short: T
+      model: VSA
+  - folder: cover1-d6-ds-loss-a1wds-sgd-cyc-sahara-244591021
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder, Attention (S2)
+    static_columns:
+      seed: 244591021
+      loss: Tversky
+      loss_short: T
+      model: VSA
+  - folder: cover1-d6-ds-loss-b1wds-new-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder, Attention (S0)
+    static_columns:
+      seed: 207146141
+      loss: Unified
+      loss_short: U
+      model: VSA
+  - folder: cover1-d6-ds-loss-b1wds-new-sgd-cyc-sahara-175229620
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder, Attention (S1)
+    static_columns:
+      seed: 175229620
+      loss: Unified
+      loss_short: U
+      model: VSA
+  - folder: cover1-d6-ds-loss-b1wds-new-sgd-cyc-sahara-244591021
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder, Attention (S2)
+    static_columns:
+      seed: 244591021
+      loss: Unified
+      loss_short: U
+      model: VSA
+  # Sahel
+  - folder: cover1-d1-ds-loss-a1wds-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      seed: 207146141
+      loss: Tversky
+      loss_short: T
+      model: V
+  - folder: cover1-d1-ds-loss-b1wds-new-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      seed: 207146141
+      loss: Unified
+      loss_short: U
+      model: V
+  - folder: cover1-d4-ds-loss-a1wds-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla + Attention (S0)
+    static_columns:
+      seed: 207146141
+      loss: Tversky
+      loss_short: T
+      model: VA
+  - folder: cover1-d4-ds-loss-a1wds-sgd-cyc-sahel-175229620
+    dataset: 2
+    label: Vanilla + Attention (S1)
+    static_columns:
+      seed: 175229620
+      loss: Tversky
+      loss_short: T
+      model: VA
+  - folder: cover1-d4-ds-loss-a1wds-sgd-cyc-sahel-244591021
+    dataset: 2
+    label: Vanilla + Attention (S2)
+    static_columns:
+      seed: 244591021
+      loss: Tversky
+      loss_short: T
+      model: VA
+  - folder: cover1-d4-ds-loss-b1wds-new-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla + Attention (S0)
+    static_columns:
+      seed: 207146141
+      loss: Unified
+      loss_short: U
+      model: VA
+  - folder: cover1-d4-ds-loss-b1wds-new-sgd-cyc-sahel-175229620
+    dataset: 2
+    label: Vanilla + Attention (S1)
+    static_columns:
+      seed: 175229620
+      loss: Unified
+      loss_short: U
+      model: VA
+  - folder: cover1-d4-ds-loss-b1wds-new-sgd-cyc-sahel-244591021
+    dataset: 2
+    label: Vanilla + Attention (S2)
+    static_columns:
+      seed: 244591021
+      loss: Unified
+      loss_short: U
+      model: VA
+  - folder: cover1-d5-ds-loss-a1wds-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder
+    static_columns:
+      seed: 207146141
+      loss: Tversky
+      loss_short: T
+      model: VS
+  - folder: cover1-d5-ds-loss-b1wds-new-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder
+    static_columns:
+      seed: 207146141
+      loss: Unified
+      loss_short: U
+      model: VS
+  - folder: cover1-d6-ds-loss-a1wds-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention (S0)
+    static_columns:
+      seed: 207146141
+      loss: Tversky
+      loss_short: T
+      model: VSA
+  - folder: cover1-d6-ds-loss-a1wds-sgd-cyc-sahel-175229620
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention (S1)
+    static_columns:
+      seed: 175229620
+      loss: Tversky
+      loss_short: T
+      model: VSA
+  - folder: cover1-d6-ds-loss-a1wds-sgd-cyc-sahel-244591021
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention (S2)
+    static_columns:
+      seed: 244591021
+      loss: Tversky
+      loss_short: T
+      model: VSA
+  - folder: cover1-d6-ds-loss-b1wds-new-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention (S0)
+    static_columns:
+      seed: 207146141
+      loss: Unified
+      loss_short: U
+      model: VSA
+  - folder: cover1-d6-ds-loss-b1wds-new-sgd-cyc-sahel-175229620
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention (S1)
+    static_columns:
+      seed: 175229620
+      loss: Unified
+      loss_short: U
+      model: VSA
+  - folder: cover1-d6-ds-loss-b1wds-new-sgd-cyc-sahel-244591021
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention (S2)
+    static_columns:
+      seed: 244591021
+      loss: Unified
+      loss_short: U
+      model: VSA
+  # Rwanda
+  - folder: cover1-d1-ds-loss-a1wds-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      seed: 207146141
+      loss: Tversky
+      loss_short: T
+      model: V
+  - folder: cover1-d1-ds-loss-b1wds-new-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      seed: 207146141
+      loss: Unified
+      loss_short: U
+      model: V
+  - folder: cover1-d4-ds-loss-a1wds-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla + Attention
+    static_columns:
+      seed: 207146141
+      loss: Tversky
+      loss_short: T
+      model: VA
+  - folder: cover1-d4-ds-loss-b1wds-new-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla + Attention
+    static_columns:
+      seed: 207146141
+      loss: Unified
+      loss_short: U
+      model: VA
+  - folder: cover1-d5-ds-loss-a1wds-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla encoder, SDUNet decoder
+    static_columns:
+      seed: 207146141
+      loss: Tversky
+      loss_short: T
+      model: VS
+  - folder: cover1-d5-ds-loss-b1wds-new-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla encoder, SDUNet decoder
+    static_columns:
+      seed: 207146141
+      loss: Unified
+      loss_short: U
+      model: VS
+  - folder: cover1-d6-ds-loss-a1wds-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      seed: 207146141
+      loss: Tversky
+      loss_short: T
+      model: VSA
+  - folder: cover1-d6-ds-loss-b1wds-new-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      seed: 207146141
+      loss: Unified
+      loss_short: U
+      model: VSA
+columns:
+  - key: cover_r_square
+    label: Cover R2
+    best: max
+  - key: segmentation_map_mcc
+    label: MCC
+    best: max
+  - key: segmentation_map_dsc
+    label: DSC
+    best: max
+  - key: segmentation_map_accuracy
+    label: Accuracy
+    best: max
+  - key: segmentation_map_precision
+    label: Precision
+    best: max
+  - key: segmentation_map_recall
+    label: Recall
+    best: max

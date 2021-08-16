@@ -1,0 +1,76 @@
+title: "Comparison of different optimizers for density estimation (250 epochs)"
+ref: tab:density-gt
+datasets:
+  1: Sahara
+  2: Sahel-Sudan
+  3: Rwanda
+static_columns:
+  model: Model (abbrev.)
+  gt: Ground Truth
+  opt: Optimizer
+  seed: Seed
+static_columns_pos:
+  model: 1
+  opt: 1
+  gt: 1
+  seed: 2
+models:
+  - folder: density2-d6-scaled-cth1-g2-loss-a1-adam3-sahel-207146141-250
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: SC, G(11, 5)
+      model: VSA
+      opt: Adam (1e-6)
+  - folder: density2-d6-scaled-cth1-g2-loss-a1-adam2-sahel-207146141-250
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: SC, G(11, 5)
+      model: VSA
+      opt: Adam (1e-5)
+  - folder: density2-d6-scaled-cth1-g2-loss-a1-adam1-sahel-207146141-250
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: SC, G(11, 5)
+      model: VSA
+      opt: Adam (1e-4)
+  - folder: density2-d6-scaled-cth1-g2-loss-a1-sgd-cyc-sahel-207146141-250
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: SC, G(11, 5)
+      model: VSA
+      opt: SGD (Triangular)
+
+columns:
+  - key: val_count_r_square
+    label: Count R2
+    best: max
+  - key: val_count_rmse
+    label: Count RMSE
+    best: min
+  - key: val_count_mae
+    label: Count MAE
+    best: min
+  - key: val_density_map_r_square
+    label: DM R2
+    best: max
+  - key: val_density_map_rmse
+    label: DM RMSE
+    best: min
+  - key: val_density_map_mae
+    label: DM MAE
+    best: min
+  - key: val_cover_r_square
+    label: Cover R2
+    best: max

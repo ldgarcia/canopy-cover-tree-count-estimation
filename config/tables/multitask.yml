@@ -1,0 +1,169 @@
+title: "Comparison of the multioutput"
+ref: tab:multioutput
+datasets:
+  1: Sahara
+  2: Sahel-Sudan
+  3: Rwanda
+static_columns:
+  task: Task
+  opt: Optimizer
+  seed: Seed
+  gt: Grouth Truth
+static_columns_pos:
+  type: 0
+  gt: 1
+  opt: 1
+  seed: 2
+models:
+  - folder: density2-d1-scaled-cth1-g6-loss-a1-adam2-sahara-207146141
+    dataset: 1
+    label: Vanilla
+    static_columns:
+      task: Count
+      gt: SC, G(9, 5)
+      seed: 207146141
+      opt: Adam (1e-5)
+  - folder: density2-d1-scaled-cth1-edt1-loss-a1-adam2-sahara-207146141
+    dataset: 1
+    label: Vanilla
+    static_columns:
+      task: Count
+      gt: EDT
+      seed: 207146141
+      opt: Adam (1e-5)
+  - folder: cover1-d1-ds-loss-a1wds-sgd-cyc-sahara-207146141
+    dataset: 1
+    label: Vanilla
+    static_columns:
+      task: Cover
+      gt: ""
+      seed: 207146141
+      opt: SGD (Triangular)
+  - folder: multi0-d1-ds-density-block-gt-g6-loss-b1wds-adam3-sahara-207146141
+    dataset: 1
+    label: Vanilla
+    static_columns:
+      task: Multi
+      gt: SC, G(9, 5)
+      seed: 207146141
+      opt: Adam (1e-6)
+  - folder: multi0-d1-ds-density-block-gt-edt1-loss-b1wds-adam3-sahara-207146141
+    dataset: 1
+    label: Vanilla
+    static_columns:
+      task: Multi
+      gt: EDT
+      seed: 207146141
+      opt: Adam (1e-6)
+  # Sahel
+  - folder: cover1-d1-ds-loss-b1wds-new-sgd-cyc-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      task: Cover
+      gt: ""
+      seed: 207146141
+      opt: SGD (Triangular)
+  - folder: density2-d1-scaled-cth1-g4-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      task: Count
+      gt: SC, G(13, 5)
+      seed: 207146141
+      opt: Adam (1e-5)
+  - folder: density2-d1-scaled-cth1-g7-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      task: Count
+      gt: G(3, 5)
+      seed: 207146141
+      opt: Adam (1e-5)
+  - folder: multi0-d1-ds-density-block-gt-g4-loss-b1wds-adam3-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      task: Multi
+      gt: SC, G(13, 5)
+      seed: 207146141
+      opt: Adam (1e-6)
+  - folder: multi0-d1-ds-density-block-gt-g7-loss-b1wds-adam3-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      task: Multi
+      gt: G(3, 5)
+      seed: 207146141
+      opt: Adam (1e-6)
+  # Rwanda
+  - folder: cover1-d1-ds-loss-b1wds-new-sgd-cyc-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      task: Cover
+      gt: ""
+      seed: 207146141
+      opt: SGD (Triangular)
+  - folder: density2-d1-scaled-cth1-g9-loss-a1-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      task: Count
+      gt: SC, G(19, 5)
+      seed: 207146141
+      opt: Adam (1e-5)
+  - folder: density2-d1-scaled-cth1-g7-loss-a1-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      task: Count
+      gt: G(3, 5)
+      seed: 207146141
+      opt: Adam (1e-5)
+  - folder: multi0-d1-ds-density-block-gt-g9-loss-b1wds-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      task: Multi
+      gt: SC, G(19, 5)
+      seed: 207146141
+      opt: Adam (1e-5)
+  - folder: multi0-d1-ds-density-block-gt-g7-loss-b1wds-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      task: Multi
+      gt: G(3, 5)
+      seed: 207146141
+      opt: Adam (1e-5)
+  - folder: multi0-d1-ds-density-block-gt-g9-loss-b1wds-adam3-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      task: Multi
+      gt: SC, G(19, 5)
+      seed: 207146141
+      opt: Adam (1e-6)
+  - folder: multi0-d1-ds-density-block-gt-g7-loss-b1wds-adam3-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      task: Multi
+      gt: G(3, 5)
+      seed: 207146141
+      opt: Adam (1e-6)
+
+columns:
+  - key: val_count_r_square
+    label: Count R2
+    best: max
+  - key: val_density_map_r_square
+    label: DM R2
+    best: max
+  - key: val_cover_r_square
+    label: Cover R2
+    best: max
+  - key: val_segmentation_map_mcc
+    label: MCC
+    best: max

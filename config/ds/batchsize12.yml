@@ -1,0 +1,4 @@
+model_name_suffix:
+  - batch12
+settings:
+  training_batch_size: 12

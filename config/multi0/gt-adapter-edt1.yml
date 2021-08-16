@@ -1,0 +1,8 @@
+model_name_suffix:
+  - gt
+  - edt1
+settings:
+  annotation_keys:
+    - segmentation-mask
+    - edt-density
+    - segmentation-boundary-weights

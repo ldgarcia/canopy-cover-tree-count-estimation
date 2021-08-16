@@ -1,0 +1,7 @@
+model_name_suffix:
+  - dm2
+settings:
+  annotation_keys:
+    - dm-gaussian-density-sgm_500-fs_900
+    - segmentation-mask
+    - segmentation-boundary-weights

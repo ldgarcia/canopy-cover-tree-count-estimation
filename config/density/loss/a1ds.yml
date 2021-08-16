@@ -1,0 +1,30 @@
+model_name_suffix:
+  - loss
+  - a1ds
+settings:
+  loss:
+    density_map:
+      name: MeanSquaredErrorV2
+      parameters:
+        name: "mse"
+    density_map_hidden_1:
+      name: MeanSquaredErrorV2
+      parameters:
+        name: "mse"
+    density_map_hidden_2:
+      name: MeanSquaredErrorV2
+      parameters:
+        name: "mse"
+    density_map_hidden_3:
+      name: MeanSquaredErrorV2
+      parameters:
+        name: "mse"
+    count: null
+    cover: null
+  loss_weights:
+    density_map: 1.0
+    density_map_hidden_1: 1.0
+    density_map_hidden_2: 1.0
+    density_map_hidden_3: 1.0
+    count: 0.0
+    cover: 0.0

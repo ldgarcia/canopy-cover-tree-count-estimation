@@ -1,0 +1,50 @@
+model_name_suffix:
+  - loss
+  - b1wds
+settings:
+  loss:
+    segmentation_map:
+      name: UnifiedFocal
+      parameters:
+        alpha: 0.6
+        gamma: 0.2
+        lmbda: 0.5
+        weights_index: 1
+    segmentation_map_hidden_1:
+      name: UnifiedFocal
+      parameters:
+        alpha: 0.6
+        gamma: 0.2
+        lmbda: 0.5
+        weights_index: 1
+    segmentation_map_hidden_2:
+      name: UnifiedFocal
+      parameters:
+        alpha: 0.6
+        gamma: 0.2
+        lmbda: 0.5
+        weights_index: 1
+    segmentation_map_hidden_3:
+      name: UnifiedFocal
+      parameters:
+        alpha: 0.6
+        gamma: 0.2
+        lmbda: 0.5
+        weights_index: 1
+    cover:
+      name: MeanSquaredError
+      parameters:
+        name: mse
+    density_map:
+      name: MeanSquaredErrorV2
+      parameters:
+        name: mse
+    count: null
+  loss_weights:
+    segmentation_map: 1.0
+    segmentation_map_hidden_1: 0.25
+    segmentation_map_hidden_2: 0.25
+    segmentation_map_hidden_3: 0.25
+    cover: 0.25
+    density_map: 2.0
+    count: 0.0

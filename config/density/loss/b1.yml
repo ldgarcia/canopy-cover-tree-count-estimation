@@ -1,0 +1,16 @@
+model_name_suffix:
+  - loss
+  - b1
+settings:
+  loss:
+    density_map:
+      name: MeanSquaredErrorV2
+      parameters:
+        name: "mse"
+    count: null
+    cover:
+      name: MeanSquaredError
+  loss_weights:
+    density_map: 1.0
+    count: 0.0
+    cover: 0.25

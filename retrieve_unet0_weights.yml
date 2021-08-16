@@ -1,0 +1,7 @@
+# Custom environment for loading the model available in GitHub
+name: retrieve_model_weights
+dependencies:
+  - python==3.7
+  - pip
+  - pip:
+    - tensorflow-cpu==2.3.1

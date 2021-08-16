@@ -1,0 +1,35 @@
+settings:
+  enable_eval_output: True  # enables the thresholded output
+  metrics:
+    cover_after_threshold:
+      - name: RSquareV2
+        parameters:
+          dtype: float32
+          y_shape: !!python/tuple [1]
+      - name: MeanAbsoluteError
+      - name: RootMeanSquaredError
+    cover:
+      - name: RSquareV2
+        parameters:
+          dtype: float32
+          y_shape: !!python/tuple [1]
+      - name: MeanAbsoluteError
+      - name: RootMeanSquaredError
+    segmentation_map:
+      - name: RSquareV2
+        parameters:
+          dtype: float32
+          y_true_index: 0
+          y_shape: !!python/tuple [256, 256, 1]
+          multioutput: uniform_average
+      - name: BinaryRSquareV2
+        parameters:
+          dtype: float32
+          y_true_index: 0
+          y_shape: !!python/tuple [256, 256, 1]
+          multioutput: uniform_average
+      - name: mcc
+      - name: dsc
+      - name: accuracy
+      - name: precision
+      - name: recall

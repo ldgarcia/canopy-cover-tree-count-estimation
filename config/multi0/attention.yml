@@ -1,0 +1,6 @@
+# Adapter to enable the attention gate
+model_name_suffix:
+  - attention
+settings:
+  decoder_use_attention_gate: True
+  decoder_attention_relu_variant: elu

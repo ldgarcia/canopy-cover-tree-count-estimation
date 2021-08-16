@@ -1,0 +1,12 @@
+model_name_suffix:
+  - loss
+  - tversky
+  - fw
+settings:
+  loss:
+    name: Tversky
+    parameters:
+      alpha: 0.4
+      gamma: 1.8
+      weights_index: 1
+  output_use_focal_bias_initializer: True

@@ -1,0 +1,52 @@
+name: dlc
+channels:
+  - conda-forge
+dependencies:
+  - python==3.9
+  - geopandas
+  - gdal
+  - rasterio
+  - tqdm
+  - pydantic
+  - black
+  - pycodestyle
+  - pydocstyle
+  - pre-commit
+  - mypy
+  - rclone
+  - imgaug=0.4.0
+  - jupyterlab
+  - numpy
+  - scipy
+  - opencv
+  - scikit-image
+  - scikit-learn
+  - matplotlib
+  - ipython
+  - git
+  - vim
+  - pytest
+  - onednn-cpu-tbb
+  - scikit-learn-intelex
+  - gitpython
+  - mimalloc
+  - descartes
+  - jinja2
+  - pyyaml==5.4.1
+  - dill
+  - colorama
+  - tabulate
+  - gputil
+  - p7zip
+  - awscli
+  - pip
+  - pip:
+    # TF with GPU support is pending for conda-forge package
+    # Issue: https://github.com/conda-forge/tensorflow-feedstock/issues/10
+    - tensorflow-gpu==2.5.0
+    - h5py
+    - tensorflow_addons==0.13.0
+    #- tensorflow_addons@git+https://github.com/tensorflow/addons@v0.13.0
+    - albumentations[imgaug]==1.0.0
+    #- albumentations@git+https://github.com/albumentations-team/albumentations
+    - mpld3

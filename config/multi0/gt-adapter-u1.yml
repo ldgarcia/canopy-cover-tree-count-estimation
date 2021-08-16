@@ -1,0 +1,8 @@
+model_name_suffix:
+  - gt
+  - u1
+settings:
+  annotation_keys:
+    - segmentation-mask
+    - uniform-density
+    - segmentation-boundary-weights

@@ -1,0 +1,36 @@
+model_name_suffix:
+  - a2
+  - scaled
+slurm:
+  partition: gpu
+  gres: "gpu:titanrtx:1"
+  cpus_per_task: 4
+  memory_gb: 10
+  approx_ms_per_epoch_step: 400
+settings:
+  # annotation_keys: # see 'gt' directory
+  transformers:
+    - name: to_density1_annotation_scaled
+  use_target_class_prior: True
+  target_class_prior: null # autocompute
+  #target_class_prior_scale: !!python/float "1e2"  # mscaled2
+  model: density1
+  output_channels: 1
+  output_activation: linear
+  hidden_activation: relu
+  relu_activity_l1_regularizer: null # 0.000001
+  padding: same
+  depth: 4
+  layer_count: 64
+  output_resize_interpolation: null
+  encoder_unit: vanilla_bn
+  encoder_pooling: max
+  decoder_unit: vanilla_bn
+  decoder_upsampling: odena_2016
+  decoder_upsampling_use_batch_norm: True
+  decoder_use_attention_gate: True
+  decoder_attention_relu_variant: prelu
+  deeply_supervised: False
+  # In this configuration, we use lsuv initialization
+  use_orthogonal_initialization: True
+  use_lsuv_initialization: True

@@ -1,0 +1,33 @@
+model_name_suffix:
+  - loss
+  - c1wds
+  - new
+settings:
+  loss:
+    segmentation_map:
+      name: UnifiedFocal
+      parameters:
+        alpha: 0.6
+        weights_index: 1
+    segmentation_map_hidden_1:
+      name: UnifiedFocal
+      parameters:
+        alpha: 0.6
+        weights_index: 1
+    segmentation_map_hidden_2:
+      name: UnifiedFocal
+      parameters:
+        alpha: 0.6
+        weights_index: 1
+    segmentation_map_hidden_3:
+      name: UnifiedFocal
+      parameters:
+        alpha: 0.6
+        weights_index: 1
+    cover: null
+  loss_weights:
+    segmentation_map: 1.0
+    segmentation_map_hidden_1: 1.0
+    segmentation_map_hidden_2: 1.0
+    segmentation_map_hidden_3: 1.0
+    cover: 0.0

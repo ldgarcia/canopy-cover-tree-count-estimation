@@ -1,0 +1,19 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+    -   id: check-yaml
+        args: [--unsafe]
+    #-   id: check-json
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+    #-   id: check-shebang-scripts-are-executable
+    #-   id: check-executables-have-shebangs
+-   repo: https://github.com/psf/black
+    rev: 21.6b0
+    hooks:
+    -   id: black
+-   repo: https://github.com/asottile/reorder_python_imports
+    rev: v2.5.0
+    hooks:
+    -   id: reorder-python-imports

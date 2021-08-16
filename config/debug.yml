@@ -1,0 +1,4 @@
+model_name_suffix:
+  - "debug"
+settings:
+  training_steps: 2

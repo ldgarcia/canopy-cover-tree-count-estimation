@@ -1,0 +1,3 @@
+# Adapter that adds a suffix that marks it as a final model
+model_name_suffix:
+  - final

@@ -1,0 +1,18 @@
+model_name_suffix:
+  - loss
+  - b1w
+  - new
+settings:
+  loss:
+    segmentation_map:
+      name: UnifiedFocal
+      parameters:
+        alpha: 0.6
+        gamma: 0.2
+        lmbda: 0.5
+        weights_index: 1
+    cover:
+      name: MeanSquaredError
+  loss_weights:
+    segmentation_map: 1.0
+    cover: 0.25

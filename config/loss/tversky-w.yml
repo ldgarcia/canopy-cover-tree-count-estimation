@@ -1,0 +1,10 @@
+model_name_suffix:
+  - loss
+  - tversky
+  - w
+settings:
+  loss:
+    name: Tversky
+    parameters:
+      alpha: 0.4
+      weights_index: 1

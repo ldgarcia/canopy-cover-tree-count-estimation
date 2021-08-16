@@ -1,0 +1,347 @@
+title: "Comparison of different ground-truths for density estimation"
+ref: tab:density-gt
+datasets:
+  1: Sahara
+  2: Sahel-Sudan
+  3: Rwanda
+static_columns:
+  model: Model (abbrev.)
+  supervision: Supervision
+  gt: Ground Truth
+  seed: Seed
+static_columns_pos:
+  model: 1
+  supervision: 1
+  gt: 1
+  seed: 2
+models:
+  # Sahara
+  - folder: density2-d1-scaled-cth1-u1-loss-a1-adam2-sahara-207146141
+    dataset: 1
+    label: Vanilla
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: Uniform
+      model: V
+  - folder: density2-d6-scaled-cth1-u1-loss-a1-adam2-sahara-207146141
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: Uniform
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-edt1-loss-a1-adam2-sahara-207146141
+    dataset: 1
+    label: Vanilla
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: EDT
+      model: V
+  - folder: density2-d6-scaled-cth1-edt1-loss-a1-adam2-sahara-207146141
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: EDT
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-g7-loss-a1-adam2-sahara-207146141
+    dataset: 1
+    label: Vanilla
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: G(3, 5)
+      model: V
+  - folder: density2-d6-scaled-cth1-g7-loss-a1-adam2-sahara-207146141
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: G(3, 5)
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-g6-loss-a1-adam2-sahara-207146141
+    dataset: 1
+    label: Vanilla
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: SC, G(9, 5)
+      model: V
+  - folder: density2-d6-scaled-cth1-g6-loss-a1-adam2-sahara-207146141
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: SC, G(9, 5)
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-g5-loss-a1-adam2-sahara-207146141
+    dataset: 1
+    label: Vanilla
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: EC, G(9, 5)
+      model: V
+  - folder: density2-d6-scaled-cth1-g5-loss-a1-adam2-sahara-207146141
+    dataset: 1
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: EC, G(9, 5)
+      model: VSA
+
+    # Sahel
+  - folder: density2-d1-scaled-cth1-u1-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: Uniform
+      model: V
+  - folder: density2-d6-scaled-cth1-u1-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: Uniform
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-edt1-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: EDT
+      model: V
+  - folder: density2-d5-scaled-cth1-edt1-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: EDT
+      model: VS
+  - folder: density2-d6-scaled-cth1-edt1-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: EDT
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-g7-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: G(3, 5)
+      model: V
+  - folder: density2-d6-scaled-cth1-g7-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: G(3, 5)
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-g2-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: SC, G(11, 5)
+      model: V
+  - folder: density2-d5-scaled-cth1-g2-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: SC, G(11, 5)
+      model: VS
+  - folder: density2-d6-scaled-cth1-g2-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: SC, G(11, 5)
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-g1-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: EC, G(11, 5)
+      model: V
+  - folder: density2-d6-scaled-cth1-g1-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: EC, G(11, 5)
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-g4-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: SC, G(13, 5)
+      model: V
+  - folder: density2-d6-scaled-cth1-g4-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: SC, G(13, 5)
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-g3-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: EC, G(13, 5)
+      model: V
+  - folder: density2-d6-scaled-cth1-g3-loss-a1-adam2-sahel-207146141
+    dataset: 2
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: EC, G(13, 5)
+      model: VSA
+
+    # Rwanda
+  - folder: density2-d1-scaled-cth1-u1-loss-a1-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: Uniform
+      model: V
+  - folder: density2-d6-scaled-cth1-u1-loss-a1-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: Uniform
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-edt1-loss-a1-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: EDT
+      model: V
+  - folder: density2-d6-scaled-cth1-edt1-loss-a1-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: EDT
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-g7-loss-a1-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: G(3, 5)
+      model: V
+  - folder: density2-d6-scaled-cth1-g7-loss-a1-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Per-pixel
+      seed: 207146141
+      gt: G(3, 5)
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-g9-loss-a1-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: SC, G(19, 5)
+      model: V
+  - folder: density2-d6-scaled-cth1-g9-loss-a1-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: SC, G(19, 5)
+      model: VSA
+
+  - folder: density2-d1-scaled-cth1-g8-loss-a1-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: EC, G(19,5)
+      model: V
+  - folder: density2-d6-scaled-cth1-g8-loss-a1-adam2-rwanda-207146141
+    dataset: 3
+    label: Vanilla encoder, SDUNet decoder, Attention
+    static_columns:
+      supervision: Point
+      seed: 207146141
+      gt: EC, G(19,5)
+      model: VSA
+
+columns:
+  - key: val_count_r_square
+    label: Count R2
+    best: max
+  - key: val_count_rmse
+    label: Count RMSE
+    best: min
+  - key: val_count_mae
+    label: Count MAE
+    best: min
+  - key: val_density_map_r_square
+    label: DM R2
+    best: max
+  - key: val_density_map_rmse
+    label: DM RMSE
+    best: min
+  - key: val_density_map_mae
+    label: DM MAE
+    best: min
+  - key: val_cover_r_square
+    label: Cover R2
+    best: max

@@ -1,0 +1,8 @@
+settings:
+  model: cover0c
+  base_weights: sahara_v1_0_0
+  output_channels: 1
+  annotation_keys:
+    - segmentation-mask
+  transformers:
+    - name: to_cover1_annotation

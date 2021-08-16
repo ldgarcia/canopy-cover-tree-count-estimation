@@ -1,0 +1,18 @@
+settings:
+  input_channels: 2
+  dataset_name: "sahara-sahel-eval"
+  patch_size: !!python/tuple [256, 256]
+  frames_file: "sahara-sahel/frames.geojson"
+  frames_query: "original_split == 'train'"
+  evaluation_frames_query: "original_split == 'test'"
+  # Only used for initial evaluation experiment, so dummy values here.
+  split_seed: 0
+  validation_batch_size: 1
+  validation_steps: null # automatic computation
+  validation_n_skip: null
+  validation_plot_n_skip: 1
+  validation_plot_n_take: 1
+  training_batch_size: 1
+  training_steps: 1
+  testing_batch_size: 1
+  testing_steps: null

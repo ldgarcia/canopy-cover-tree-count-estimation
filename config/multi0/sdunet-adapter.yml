@@ -1,0 +1,5 @@
+model_name_suffix:
+  - sdunet
+settings:
+  encoder_unit: sdunet
+  decoder_unit: sdunet

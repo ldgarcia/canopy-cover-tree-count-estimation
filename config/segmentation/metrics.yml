@@ -1,0 +1,12 @@
+settings:
+  metrics:
+    - name: "BinaryAccuracyV2"
+      parameters:
+        y_true_index: 0
+    - name: "BinaryRSquareV2"
+      parameters:
+        dtype: "float32"
+        y_true_index: 0
+        y_shape: !!python/tuple [256, 256, 1]
+        multioutput: "uniform_average"
+    - name: "dice_coefficient"

@@ -1,0 +1,35 @@
+model_name_suffix:
+  - d5
+  - scaled
+slurm:
+  partition: gpu
+  gres: "gpu:titanrtx:1"
+  cpus_per_task: 4
+  memory_gb: 10
+  approx_ms_per_epoch_step: 600
+settings:
+  # annotation_keys: # see 'gt' directory
+  transformers:
+    - name: to_density2_annotation_scaled
+  use_target_class_prior: True
+  target_class_prior: null # autocompute
+  #target_class_prior_scale: !!python/float "1e2"  # mscaled2
+  model: density2
+  output_channels: 1
+  output_activation: linear
+  hidden_activation: elu
+  relu_activity_l1_regularizer: null # 0.000001
+  padding: same
+  depth: 4
+  layer_count: 64
+  output_resize_interpolation: null
+  encoder_unit: vanilla
+  encoder_pooling: max
+  encoder_pooling_batch_norm: True # using BN here
+  decoder_unit: sdunet
+  decoder_upsampling: odena_2016
+  decoder_upsampling_use_batch_norm: False
+  decoder_use_attention_gate: False
+  decoder_attention_relu_variant: elu
+  decoder_concat_use_batch_norm: True # using BN here
+  deeply_supervised: False

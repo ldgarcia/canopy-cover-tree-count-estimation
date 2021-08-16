@@ -1,0 +1,5 @@
+model_name_suffix:
+  - u1
+settings:
+  annotation_keys:
+    - uniform-density

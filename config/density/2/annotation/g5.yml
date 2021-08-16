@@ -1,0 +1,7 @@
+model_name_suffix:
+  - g5
+settings:
+  annotation_keys:
+    - gaussian-density-sgm_500-fs_900-ftc-ec
+    - segmentation-mask
+    - segmentation-boundary-weights

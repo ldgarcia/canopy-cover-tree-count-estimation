@@ -1,0 +1,170 @@
+#!/usr/bin/env bash
+{% if redirect_output_fn is not none %}
+exec &>> {{redirect_output_fn}}
+{% endif %}
+
+{% if not within_colab %}
+{%if use_erda %}
+echo "Mounting ERDA"
+if [ -f "${DLC_ERDA_KEY}" ]
+then
+    mkdir -p ${DLC_ERDA_MOUNT}
+    sshfs ${DLC_ERDA_USER}@io.erda.dk:${DLC_ERDA_DIR} ${DLC_ERDA_MOUNT} -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 -o IdentityFile=${ERDA_KEY}
+else
+    echo "'${DLC_ERDA_KEY}' is not an SSH key"
+fi
+{% endif %}
+
+{% if conda_prefix %}
+source {{conda_prefix}}/etc/profile.d/conda.sh
+{% else %}
+source ${HOME}/miniconda3/etc/profile.d/conda.sh
+{% endif %}
+echo "Activating conda environment"
+conda activate {{conda_env_name}}
+{% endif %}
+
+# Add DLC to Python Path
+echo "Adding project directory to Python path: {{project_directory}}"
+echo "Using data directory: {{data_directory}}"
+
+{% if python_path_additions %}
+export PYTHONPATH="{{python_path_additions}}:${PYTHONPATH}"
+{% endif %}
+export PYTHONPATH="{{project_directory}}:${PYTHONPATH}"
+
+{% if not within_colab %}
+PYTHON_CMD=python3
+{% else %}
+PYTHON_CMD=/usr/bin/python3
+{% endif %}
+
+GPU_ENV=`cat << END | ${PYTHON_CMD}
+import shutil
+import subprocess
+within_gpu_env = False
+nvidia_smi_path = shutil.which("nvidia-smi")
+if nvidia_smi_path is not None:
+    r = subprocess.run(
+        [nvidia_smi_path, "--list-gpus"],
+        capture_output=True,
+    )
+    within_gpu_env = r.returncode == 0 and len(r.stdout.splitlines()) > 0
+print(int(within_gpu_env))
+END`
+
+
+if [ "$GPU_ENV" -eq "1" ]; then
+    echo "GPU detected, will disable experimental oneDNN operations";
+    export TF_ENABLE_ONEDNN_OPTS=0;
+else
+    echo "No GPU detected, will enable experimental oneDNN operations";
+    export TF_ENABLE_ONEDNN_OPTS=1;
+fi
+
+{% if gpu_number is not none %}
+export gpu_number={{gpu_number}}
+{% endif %}
+
+# Settings affecting non-determinism
+export splitter_seed="{{splitter_seed}}"
+export seed="{{seed}}"
+export PYTHONHASHSEED="{{seed}}"
+export TF_DETERMINISTIC_OPS=1
+#export TF_CUDNN_DETERMINISTIC=1
+
+# Add the settings to the environment
+echo "Using configuration file(s):"
+echo "{{config_paths}}"
+export config_paths="{{config_paths}}"
+export data_directory={{data_directory}}
+
+{% if model_name_suffix %}
+export model_name_suffix={{model_name_suffix}}
+{% endif %}
+
+{% if is_sanity_check %}
+export is_sanity_check={{is_sanity_check}}
+{% endif %}
+
+{% if run_profiler %}
+export run_profiler={{run_profiler}}
+{% endif %}
+
+{% if use_tensorboard %}
+export use_tensorboard={{use_tensorboard}}
+{% endif %}
+
+# Use the mimalloc efficient allocator (or Colab's libtcmalloc)
+{% if not within_colab %}
+# Optionally set this env variable to check that mimalloc is indeed running,
+# as well as gather memory usage statistics to tune the Slurm resource usage
+# information node of the model configuration files.
+export MIMALLOC_VERBOSE=1
+{% if conda_prefix and conda_env_name %}
+export LD_PRELOAD="{{conda_prefix}}/envs/{{conda_env_name}}/lib/libmimalloc.so"
+{% else %}
+export LD_PRELOAD="${HOME}/miniconda3/envs/dlc/lib/libmimalloc.so"
+{% endif %}
+{% else %}
+echo "Colab is using LD_PRELOAD=${LD_PRELOAD}"
+{% endif %}
+# GPU memory stuff
+# export TF_GPU_ALLOCATOR="cuda_malloc_async"
+
+export TF_FORCE_GPU_ALLOW_GROWTH=true
+
+echo "Using Python: ${PYTHON_CMD}"
+echo "Using PYTHONPATH=${PYTHONPATH}"
+echo "Using PATH: ${PATH}"
+echo "Using LD_LIBRARY_PATH: ${LD_LIBRARY_PATH}"
+
+export DLC_PROJECT_DIRECTORY="{{project_directory}}"
+
+{% if alt_models_directory is not none %}
+export alt_models_directory={{alt_models_directory}}
+{% endif %}
+
+echo "Starting job"
+
+{% if cross_validation_split_index is not none %}
+echo "Using cross_validation_split_index"
+export cross_validation_split_index={{cross_validation_split_index}}
+{% endif %}
+
+{% if is_training %}
+echo "Will start training model"
+export epochs={{epochs}}
+${PYTHON_CMD} -m dlc.models.base.trainer 2>&1
+{% endif %}
+
+{% if is_retraining %}
+echo "Will retrain model"
+echo "Total epochs: {{retraining_iterations * epochs}} ({{epochs}} epochs x {{ retraining_iterations }} iterations)"
+export is_retraining=1
+export epochs={{epochs}}
+for i in $(seq 1 {{retraining_iterations}})
+do
+    ${PYTHON_CMD} -m dlc.models.base.trainer 2>&1
+done
+{% endif %}
+
+{% if run_evaluator %}
+echo "Will run model evaluator"
+${PYTHON_CMD} -m dlc.models.base.evaluator 2>&1
+{% endif %}
+
+{% if run_plot %}
+echo "Will run plotter"
+${PYTHON_CMD} -m dlc.models.base.plotter 2>&1
+{% endif %}
+
+echo "Job finished"
+
+{% if not within_colab %}
+{%if use_erda %}
+echo "Unmounting ERDA"
+fusermount -u ${DLC_ERDA_MOUNT}
+{% endif %}
+conda deactivate
+{% endif %}

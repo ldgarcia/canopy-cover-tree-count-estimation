@@ -1,0 +1,28 @@
+settings:
+  split_seed: 591477907
+  splitter:
+    name: LatitudeObjectSplitter
+    parameters:
+      bins: 10
+      poly_count_bins: 10
+    method: train_val_split
+    method_parameters:
+      val_size: 0.25
+  input_channels: 3
+  dataset_name: "rwanda"
+  patch_size: !!python/tuple [256, 256]
+  frames_file: "rwanda/frames.geojson"
+  frames_query: "original_split == 'training'"
+  evaluation_frames_query: "original_split == 'test'"
+  #validation_batch_size: 1
+  validation_batch_size: 8
+  #validation_steps: 134
+  validation_steps: null # automatic computation
+  validation_n_skip: null
+  #validation_plot_n_skip: 194
+  validation_plot_n_skip: 12
+  validation_plot_n_take: 1
+  training_batch_size: 8
+  training_steps: 480
+  testing_batch_size: 1
+  training_local_standardization_p: !!python/tuple [0.0, null]

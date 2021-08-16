@@ -1,0 +1,38 @@
+settings:
+  plots:
+    - filename: "loss.png"
+      keys:
+        - "loss"
+      yscale: "log"
+    - filename: "density_loss.png"
+      keys:
+        - "density_map_loss"
+      yscale: "log"
+    - filename: "count_r_square.png"
+      keys:
+        - "count_r_square"
+    - filename: "density_r_square.png"
+      keys:
+        - "density_map_r_square"
+      yscale: "linear"
+    - filename: "density_metrics.png"
+      keys:
+        - "density_map_mae"
+        - "density_map_rmse"
+      yscale: "log"
+    - filename: "count_metrics.png"
+      keys:
+        - "count_mae"
+        - "count_rmse"
+      yscale: "log"
+  validation_plot_cmap:
+    - cmap: "gray"
+      keys:
+        - !!python/tuple ["annotations", 0]
+      mask_value: 1e-6
+      mask_color: "purple"
+    - cmap: "jet_r"
+      keys:
+        - !!python/tuple ["annotations", 1]
+  validation_plot_keys:
+    - "density_map"

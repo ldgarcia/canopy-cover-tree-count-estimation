@@ -1,0 +1,9 @@
+# Dataset adapter for running the stratified CV splits on the
+# initial train-validation split.
+settings:
+  splitter:
+    name: LatitudeObjectSplitter
+    method: train_val_split_k_fold
+    method_parameters:
+      val_size: 0.20
+      n_splits: 3

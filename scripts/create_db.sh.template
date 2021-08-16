@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+source ${HOME}/miniconda3/etc/profile.d/conda.sh
+
+conda activate {{conda_env}}
+
+echo "Running job"
+
+export LD_PRELOAD="${HOME}/miniconda3/envs/{{conda_env}}/lib/libmimalloc.so"
+export PYTHONPATH="${DLC_PROJECT_DIRECTORY}:${PYTHONPATH}"
+
+python3 ${DLC_PROJECT_DIRECTORY}/scripts/create_db.py \
+    --img-path="{{img_path}}" \
+    --pattern="{{img_search_pattern}}" \
+    --areas-path="{{areas_path}}" \
+    --polygons-path="{{polygons_path}}" \
+    --output-path="{{output_path}}"
+
+echo "Finished job"
+
+conda deactivate

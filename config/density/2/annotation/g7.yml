@@ -1,0 +1,7 @@
+model_name_suffix:
+  - g7
+settings:
+  annotation_keys:
+    - gaussian-density-sgm_500-fs_300-ftp
+    - segmentation-mask
+    - segmentation-boundary-weights

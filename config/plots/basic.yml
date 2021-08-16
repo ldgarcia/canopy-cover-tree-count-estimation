@@ -1,0 +1,6 @@
+settings:
+  plots:
+    - filename: "loss.png"
+      keys:
+        - "loss"
+      yscale: "linear"

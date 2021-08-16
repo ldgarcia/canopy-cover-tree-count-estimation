@@ -1,0 +1,5 @@
+model_name_suffix:
+  - density
+  - block
+settings:
+  second_output_preceding_unit: vanilla

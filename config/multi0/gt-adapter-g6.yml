@@ -1,0 +1,8 @@
+model_name_suffix:
+  - gt
+  - g6
+settings:
+  annotation_keys:
+    - segmentation-mask
+    - gaussian-density-sgm_500-fs_900-ftc-sc
+    - segmentation-boundary-weights

@@ -1,0 +1,54 @@
+settings:
+  plots:
+    - filename: loss.png
+      keys:
+        - loss
+        - cover_loss
+        - segmentation_map_loss
+      yscale: linear
+    - filename: accuracy.png
+      keys:
+        - segmentation_map_accuracy
+      yscale: linear
+    - filename: cover_r_square.png
+      keys:
+        - cover_r_square
+      yscale: log
+    - filename: segmentation_map_r_square.png
+      keys:
+        - segmentation_map_binary_r_square
+        - segmentation_map_r_square
+      yscale: log
+    - filename: rmse.png
+      keys:
+        - cover_root_mean_squared_error
+    - filename: mae.png
+      keys:
+        - cover_mean_absolute_error
+    - filename: dsc.png
+      keys:
+        - segmentation_map_dsc
+      yscale: linear
+    - filename: recall.png
+      keys:
+        - segmentation_map_recall
+      yscale: linear
+    - filename: precision.png
+      keys:
+        - segmentation_map_precision
+      yscale: linear
+    - filename: mcc.png
+      keys:
+        - segmentation_map_mcc
+  validation_plot_keys:
+    - segmentation_map
+  validation_plot_cmap:
+    #- cmap: "gray"
+    #  keys:
+    #    - !!python/tuple ["annotations", 1]
+    - cmap: jet_r
+      keys:
+        - !!python/tuple ["annotations", 1]
+      #mask_value: 1.0
+      #mask_color: "white"
+      #mask_rel: "equal"
